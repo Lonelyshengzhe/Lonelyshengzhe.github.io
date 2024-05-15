@@ -30,7 +30,7 @@ I have published nothing.
 
 # 📝 Publications 
 I said, nothing but shit.
-[本科毕业论文](docs/kcnn.pdf)
+[本科毕业论文](https://lonelyshengzhe.github.io/docs/kcnn.pdf)
 
 <!-- <div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
