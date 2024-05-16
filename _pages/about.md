@@ -19,7 +19,9 @@ redirect_from:
 
 This is my personal page, you may find some useful info here.
 My research interest includes balabala.
-I have published nothing.
+I have published nothing.<br>
+My CV is [here](https://lonelyshengzhe.github.io/files/CVonline.pdf)
+
 
 <!-- My research interest includes balabala. I have published nothing <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>). -->
 
