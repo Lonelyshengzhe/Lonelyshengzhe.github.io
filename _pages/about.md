@@ -16,22 +16,18 @@ redirect_from:
 {% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
 
 <span class='anchor' id='about-me'></span>
+I'm currently a second year master student in UvA, major in theoretical physics.
 
-This is my personal page, you may find some useful info here.
-My research interest includes balabala.
-I have published nothing.<br>
-My CV is [here](https://lonelyshengzhe.github.io/files/CVonline.pdf)
+You can download my CV by click [here](/files/cv.pdf).
 
 
 <!-- My research interest includes balabala. I have published nothing <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>). -->
 
 
-# 🔥 News
-- *2024.05*: &nbsp;🎉🎉 这网站有了。
 
 
-# 📝 Publications 
-I said, nothing but shit.
+
+
 
 
 <!-- <div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
@@ -48,18 +44,17 @@ I said, nothing but shit.
 
 - [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020** -->
 
-# 🎖 Honors and Awards
-- *2024.05* GREATEST GENSHIN PLAYER OF 137.E5-dorm. 
+<!-- # 🎖 Honors and Awards -->
+
  
 
 # 📖 Educations
-- *2024.09 - unknown*, University of Amsterdam. 
-- *2019.09 - 2024.06*, Sichuan NTP(No Toilet Paper) University. 
+- *2024.09 - Present*, <br>
+Master student，University of Amsterdam. 
+- *2023.09 -2024.01*, <br>
+Exchange student, NTHU
+- *2019.09 - 2024.06*, <br>
+Undergraduate，Sichuan University. 
 
-# 💬 Invited Talks
 
-<!-- - *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/) -->
 
-# 💻 Internships
-<!-- - *2019.05 - 2020.02*, [Lorem](https://github.com/), China. -->
