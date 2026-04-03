@@ -107,3 +107,205 @@ h1:before, .anchor:before {
     background-color: #00369f;
     font-size: .8em;
 }
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.notes-filter {
+    margin: 1rem 0;
+}
+
+.notes-search-label {
+    display: block;
+    margin-bottom: .35rem;
+    font-size: .92em;
+    color: #666;
+}
+
+.notes-search-row {
+    display: flex;
+    gap: .6rem;
+    align-items: center;
+}
+
+.notes-search-input {
+    flex: 1 1 auto;
+    min-width: 0;
+    border: 1px solid #d8d8d8;
+    border-radius: 6px;
+    padding: .55rem .7rem;
+}
+
+.notes-clear-btn {
+    border: 1px solid #d8d8d8;
+    background: #fff;
+    border-radius: 6px;
+    padding: .55rem .8rem;
+    cursor: pointer;
+}
+
+.notes-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-top: .75rem;
+}
+
+.notes-tag-btn {
+    border: 1px solid #d8d8d8;
+    background: #fff;
+    color: #444;
+    border-radius: 999px;
+    padding: .28rem .72rem;
+    font-size: .85em;
+    cursor: pointer;
+}
+
+.notes-tag-btn.is-active {
+    border-color: #3b74d7;
+    background: #eef4ff;
+    color: #1f4fa5;
+}
+
+.notes-empty-result {
+    margin: .7rem 0 0;
+    padding: .65rem .85rem;
+    border: 1px dashed #d8d8d8;
+    border-radius: 6px;
+    color: #666;
+    background: #fafafa;
+}
+
+.note-card {
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .03);
+    transition: box-shadow .2s ease, transform .2s ease;
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+    }
+}
+
+.note-card-image {
+    display: block;
+    margin: -1rem -1.1rem .9rem;
+    border-bottom: 1px solid #efefef;
+
+    img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        transition: transform .25s ease;
+    }
+}
+
+.note-card:hover .note-card-image img {
+    transform: scale(1.03);
+}
+
+.note-title {
+    margin: 0 0 .35rem 0;
+    line-height: 1.35;
+}
+
+.note-meta {
+    margin: 0 0 .7rem 0;
+    color: #777;
+    font-size: .9em;
+}
+
+.note-tags {
+    margin: 0 0 .6rem 0;
+}
+
+.note-tag {
+    display: inline-block;
+    margin: 0 .35rem .35rem 0;
+    padding: .15rem .5rem;
+    border-radius: 999px;
+    border: 1px solid #e3e3e3;
+    font-size: .78em;
+    color: #666;
+    background: #fafafa;
+}
+
+.note-excerpt {
+    margin: 0 0 .9rem 0;
+    color: #333;
+}
+
+.note-readmore {
+    display: inline-block;
+    font-size: .92em;
+    font-weight: 600;
+}
+
+@include breakpoint($medium) {
+    .notes-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .notes-search-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* Code block readability + copy button */
+.page__content {
+    div.highlighter-rouge .highlight,
+    figure.highlight .highlight {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+}
+
+div.highlighter-rouge:before,
+figure.highlight:before {
+    display: none !important;
+    content: none !important;
+}
+
+.code-copy-button {
+    position: absolute;
+    top: 0.45rem;
+    right: 0.5rem;
+    z-index: 2;
+    border: 1px solid #d0d0d0;
+    border-radius: 0.35rem;
+    background: #f8f8f8;
+    color: #444;
+    font-size: 0.75rem;
+    line-height: 1;
+    padding: 0.35rem 0.55rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+        background: #eeeeee;
+    }
+
+    &.is-copied {
+        background: #e8f6ed;
+        border-color: #8bc79b;
+        color: #2f7d42;
+    }
+
+    &.is-failed {
+        background: #fdecec;
+        border-color: #f2a7a7;
+        color: #b23a3a;
+    }
+}
