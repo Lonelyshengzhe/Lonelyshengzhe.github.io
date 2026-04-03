@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Code for EoM"
 date: 2026-04-03 10:00:00 +0800
 thumbnail: /images/cartoon1.png
 tags: [notes, theory, example]

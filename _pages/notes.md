@@ -114,20 +114,21 @@ author_profile: false
         var matchesTag = activeTag === "all" || tags.indexOf(activeTag) !== -1;
         var show = matchesSearch && matchesTag;
 
-        card.hidden = !show;
+        card.classList.toggle("note-card--hidden", !show);
+        card.setAttribute("aria-hidden", String(!show));
         if (show) {
           visibleCount += 1;
         }
       });
 
       if (emptyHint) {
-        emptyHint.hidden = visibleCount !== 0;
+        emptyHint.classList.toggle("notes-empty-result--hidden", visibleCount !== 0);
       }
     }
 
     tagsWrap.addEventListener("click", function (event) {
-      var target = event.target;
-      if (!target || !target.classList.contains("notes-tag-btn")) {
+      var target = event.target ? event.target.closest(".notes-tag-btn") : null;
+      if (!target) {
         return;
       }
 

@@ -180,6 +180,10 @@ h1:before, .anchor:before {
     background: #fafafa;
 }
 
+.notes-empty-result--hidden {
+    display: none !important;
+}
+
 .note-card {
     border: 1px solid #e8e8e8;
     border-radius: 8px;
@@ -195,16 +199,25 @@ h1:before, .anchor:before {
     }
 }
 
+.note-card--hidden {
+    display: none !important;
+}
+
 .note-card-image {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: -1rem -1.1rem .9rem;
     border-bottom: 1px solid #efefef;
+    background: #fafafa;
+    padding: .55rem .7rem;
 
     img {
         display: block;
         width: 100%;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
+        max-height: 220px;
+        object-fit: contain;
+        object-position: center;
         transition: transform .25s ease;
     }
 }
