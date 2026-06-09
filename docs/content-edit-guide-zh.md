@@ -196,7 +196,71 @@ thumbnail: /images/your-cover.jpg
 
 ---
 
-## 5. 常见问题
+## 5. Markdown/公式/论文风格渲染
+
+### 5.1 LaTeX-like 试验样式
+
+当前网页正文使用一个可回滚的 LaTeX-like overlay 样式，而不是直接改主主题文件。
+
+相关文件：
+
+- 试验样式：`assets/css/latex-like-test.css`
+- 接入位置：`_includes/head/custom.html`
+- 原始参考样式：`latex_like.css`
+
+接入方式是在 `_includes/head/custom.html` 中加载：
+
+```html
+<link rel="stylesheet" href="{{ '/assets/css/latex-like-test.css' | relative_url }}">
+```
+
+这个 overlay 只作用在文章正文区域：
+
+```css
+article.page .page__content
+```
+
+主要调整内容包括：
+
+- 正文字体、字号和行距
+- 标题字体和上下间距
+- 行内代码、代码块、表格样式
+- display math 的上下留白
+- Mermaid 图块的居中和横向滚动
+
+它不会主动影响导航栏、侧边栏、Notes 卡片列表等页面结构。当前没有启用中文论文式首行缩进，因为技术笔记里经常混用列表、公式和代码，强制缩进容易显得拥挤。
+
+回滚方式很简单：删除或注释 `_includes/head/custom.html` 里的 `latex-like-test.css` 这一行即可。CSS 文件本身可以保留，未加载时不会生效。
+
+### 5.2 MathJax SVG 与下划线修补
+
+公式渲染目前使用 MathJax 2 的 SVG 输出：
+
+```html
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_SVG' async></script>
+```
+
+相比 CommonHTML 输出，SVG 在长下标、复杂公式和不同浏览器字体环境下更稳定，减少公式文字上下轻微错位的问题。
+
+另外，`_includes/head/custom.html` 会先加载：
+
+```html
+<script src="{{ '/assets/js/mathjax-inline-fix.js' | relative_url }}"></script>
+```
+
+这个脚本用于修补导入 Markdown 时常见的问题：Jekyll/kramdown 可能会把 inline math 中 `\mathrm{homogeneous\_DOS}` 里的 `\_` 预处理成裸 `_`，导致 MathJax 把后半段当成多级下标。`mathjax-inline-fix.js` 会在 MathJax typeset 前，把 `\mathrm{...}`、`\text{...}` 等文本命令内部的标识符下划线补回转义形式。
+
+这个修补逻辑有独立测试：
+
+```bash
+node test/mathjax-inline-fix.test.js
+```
+
+如果只想关闭 LaTeX-like 视觉样式，保留 MathJax SVG 和 inline fix 即可。
+
+---
+
+## 6. 常见问题
 
 - 页面没变化：先确认 `run_server.sh` 是否在运行，再看终端有没有报错。
 - 改了 `_config.yml` 无效：重启 Jekyll 服务。

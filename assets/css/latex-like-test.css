@@ -1,0 +1,167 @@
+/* LaTeX-like article overlay.
+   Rollback: remove the link to this file from _includes/head/custom.html. */
+
+:root {
+  --latex-like-text-font: "Latin Modern Roman", "Latin Modern Roman 10", "Times New Roman", "Songti SC", "SimSun", serif;
+  --latex-like-heading-font: "Latin Modern Roman", "Times New Roman", "Heiti SC", "SimHei", serif;
+  --latex-like-mono-font: "Latin Modern Mono", "Latin Modern Mono 10", "Consolas", "SF Mono", "Courier New", monospace;
+}
+
+article.page .page__inner-wrap {
+  max-width: 900px;
+}
+
+article.page .page__content {
+  color: #222;
+  font-family: var(--latex-like-text-font);
+  font-size: 1.02rem;
+  line-height: 1.74;
+  text-rendering: optimizeLegibility;
+}
+
+article.page .page__content h1,
+article.page .page__content h2,
+article.page .page__content h3,
+article.page .page__content h4 {
+  border-bottom: none;
+  color: #111;
+  font-family: var(--latex-like-heading-font);
+  font-weight: 700;
+  line-height: 1.28;
+}
+
+article.page .page__content h1 {
+  margin: 1.6em 0 1.05em;
+  text-align: center;
+}
+
+article.page .page__content h2 {
+  margin: 1.55em 0 0.75em;
+  font-size: 1.45em;
+}
+
+article.page .page__content h3 {
+  margin: 1.25em 0 0.55em;
+  font-size: 1.2em;
+}
+
+article.page .page__content h4 {
+  margin: 1.05em 0 0.45em;
+  font-size: 1.08em;
+}
+
+article.page .page__content p {
+  margin: 0.75em 0;
+}
+
+article.page .page__content ul,
+article.page .page__content ol {
+  margin-top: 0.55em;
+  margin-bottom: 0.9em;
+}
+
+article.page .page__content li {
+  margin: 0.22em 0;
+}
+
+article.page .page__content code {
+  border-radius: 2px;
+  background-color: #fbfbfb;
+  box-shadow: 0 0 1px 1px #d8e0e8;
+  color: #315fba;
+  font-family: var(--latex-like-mono-font);
+  font-size: 0.9em;
+  margin: 0 0.08em;
+  padding: 0.05em 0.28em;
+}
+
+article.page .page__content pre,
+article.page .page__content pre code {
+  font-family: var(--latex-like-mono-font);
+}
+
+article.page .page__content pre {
+  border: 1px solid #e1e4e8;
+  border-radius: 4px;
+  background: #fbfbfb;
+  line-height: 1.58;
+  padding: 0.9em 1em;
+}
+
+article.page .page__content pre code {
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
+  font-size: 0.92em;
+  margin: 0;
+  padding: 0;
+}
+
+article.page .page__content blockquote {
+  border-left: 3px solid #b6b6b6;
+  color: #333;
+  font-family: "Times New Roman", "FangSong", "STFangsong", serif;
+  font-size: 1.02em;
+  padding-left: 1em;
+}
+
+article.page .page__content table {
+  border-collapse: collapse;
+  font-family: var(--latex-like-text-font);
+  font-size: 0.95em;
+  margin: 1.1em auto;
+}
+
+article.page .page__content th,
+article.page .page__content td {
+  border: 1px solid #d8d8d8;
+  padding: 0.42em 0.72em;
+}
+
+article.page .page__content th {
+  background: #f7f7f7;
+  font-weight: 700;
+}
+
+article.page .page__content .MathJax_SVG_Display,
+article.page .page__content mjx-container[display="true"] {
+  margin: 1.1em 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.35em 0.1em;
+}
+
+article.page .page__content .MathJax_SVG,
+article.page .page__content mjx-container {
+  font-size: 1.03em;
+}
+
+article.page .page__content .mermaid {
+  margin: 1.2em auto;
+  overflow-x: auto;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  article.page .page__content {
+    font-size: 0.98rem;
+    line-height: 1.68;
+  }
+
+  article.page .page__content h1 {
+    text-align: left;
+  }
+}
+
+@media print {
+  article.page .page__content {
+    color: #000;
+    font-size: 10.5pt;
+    line-height: 1.6;
+  }
+
+  article.page .page__content a {
+    color: inherit;
+    text-decoration: none;
+  }
+}

@@ -8,16 +8,29 @@
 <meta name="msapplication-config" content="{{ '/images/browserconfig.xml' | relative_url }}?v=M44lzPylqQ">
 <meta name="theme-color" content="#ffffff">
 <link rel="stylesheet" href="{{ '/assets/css/academicons.css' | relative_url }}"/>
+<link rel="stylesheet" href="{{ '/assets/css/latex-like-test.css' | relative_url }}">
 
-<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
+<script src="{{ '/assets/js/mathjax-inline-fix.js' | relative_url }}"></script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
+    skipStartupTypeset: true,
+    TeX: {
+      equationNumbers: { autoNumber: "all" }
+    },
     tex2jax: {
       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
       processEscapes: true
     }
   });
+
+  MathJax.Hub.Register.StartupHook("End", function () {
+    if (window.MathJaxInlineFix) {
+      window.MathJaxInlineFix.apply(document.querySelector(".page__content") || document.body);
+    }
+
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+  });
 </script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_SVG' async></script>
 
 <!-- end custom head snippets -->

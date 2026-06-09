@@ -1,5 +1,33 @@
 <script src="{{ '/assets/js/main.min.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/code-copy.js' | relative_url }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  (function () {
+    function renderMermaidBlocks() {
+      if (typeof mermaid === "undefined") {
+        return;
+      }
+
+      document.querySelectorAll("pre > code.language-mermaid").forEach(function (code) {
+        var pre = code.parentElement;
+        var container = document.createElement("div");
+
+        container.className = "mermaid";
+        container.textContent = code.textContent;
+        pre.replaceWith(container);
+      });
+
+      mermaid.initialize({ startOnLoad: false });
+      mermaid.run({ querySelector: ".mermaid" });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", renderMermaidBlocks);
+    } else {
+      renderMermaidBlocks();
+    }
+  })();
+</script>
 
 {% include analytics.html %}
 {% include fetch_google_scholar_stats.html %}
