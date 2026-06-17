@@ -1,8 +1,35 @@
 <script src="{{ '/assets/js/main.min.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/code-copy.js' | relative_url }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 <script>
   (function () {
+    var mermaidSources = [
+      "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js",
+      "https://unpkg.com/mermaid@10/dist/mermaid.min.js"
+    ];
+
+    function loadMermaidScript(index) {
+      return new Promise(function (resolve, reject) {
+        if (typeof mermaid !== "undefined") {
+          resolve();
+          return;
+        }
+
+        if (index >= mermaidSources.length) {
+          reject(new Error("Unable to load Mermaid from configured CDNs."));
+          return;
+        }
+
+        var script = document.createElement("script");
+        script.src = mermaidSources[index];
+        script.onload = resolve;
+        script.onerror = function () {
+          loadMermaidScript(index + 1).then(resolve).catch(reject);
+        };
+        document.head.appendChild(script);
+      });
+    }
+
     function renderMermaidBlocks() {
       if (typeof mermaid === "undefined") {
         return;
@@ -21,10 +48,22 @@
       mermaid.run({ querySelector: ".mermaid" });
     }
 
+    function setupMermaidBlocks() {
+      if (!document.querySelector("pre > code.language-mermaid")) {
+        return;
+      }
+
+      loadMermaidScript(0).then(renderMermaidBlocks).catch(function (error) {
+        if (typeof console !== "undefined" && console.warn) {
+          console.warn(error.message);
+        }
+      });
+    }
+
     if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", renderMermaidBlocks);
+      document.addEventListener("DOMContentLoaded", setupMermaidBlocks);
     } else {
-      renderMermaidBlocks();
+      setupMermaidBlocks();
     }
   })();
 </script>
