@@ -1,12 +1,14 @@
 ---
 title: "荷兰留学生毕业离境 Checklist"
-date: 2026-07-13 20:42:09 CEST
+date: 2026-07-13
 tags: [tmp]
 ---
 # 荷兰留学生毕业离境 Checklist
 
 > 适用于毕业后离开荷兰、回国或迁往其他国家的国际学生。  
 > 建议在预计离境前 **4–8 周**开始处理，并保留所有注销、退租和退款凭证。
+
+<div id="graduate-checklist-progress"></div>
 
 ---
 
@@ -481,3 +483,5 @@ tags: [tmp]
 - [ ] 下一年度税务申报已经记录或完成
     
 - [ ] 所有重要文件已完成本地与云端备份
+
+<script src="{{ '/assets/js/checklist-progress.js' | relative_url }}"></script>
